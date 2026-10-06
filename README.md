@@ -75,8 +75,6 @@ Card measurements come from the 2025 printshop masters
 
 ## Working on this project
 
-New to the project? Start with [docs/START_HERE.md](docs/START_HERE.md).
-
 Each person works in their own copy and their own Claude session — never two people
 in the same Dropbox folder at once.
 

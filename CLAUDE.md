@@ -1,15 +1,5 @@
 # OCHA business card — notes for Claude
 
-## Start here
-If the person is new to this project (no clear task yet, or they say “where do I
-start”), open `docs/START_HERE.md` and walk them through it one task at a time,
-starting with the first one not done. Maryam is learning web development with this
-project: explain each step in plain words before doing it, say which file you are
-changing and why, show the result, and offer to let her make small edits herself.
-Record findings as GitHub issues and fixes as pull requests (one per fix). Never push
-to `main`.
-
-## Rules
 - Static app, no build step. Test with `node scripts/render_samples.mjs`, then open the
   PDFs in **macOS Preview/sips**, not only poppler — Apple’s PDF engine is stricter.
 - Card design numbers live in `src/card.js` and were measured from the 2025 `.ai`
