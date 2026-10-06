@@ -1,5 +1,9 @@
 # OCHA business card — notes for Claude
 
+- **Embed only.** The app is shown inside the OCHA Business Card page on brand.unocha.org,
+  never as a standalone site. Keep it minimal: no header, footer, OCHA logo, favicon or
+  page title of its own — the brand site provides them. Design for its content column
+  (about 790 px wide on a laptop) and for phones.
 - Static app, no build step. Test with `node scripts/render_samples.mjs`, then open the
   PDFs in **macOS Preview/sips**, not only poppler — Apple’s PDF engine is stricter.
 - Card design numbers live in `src/card.js` and were measured from the 2025 `.ai`
