@@ -1,0 +1,8 @@
+{
+  "name": "ocha-business-card",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node scripts/render_samples.mjs"
+  }
+}

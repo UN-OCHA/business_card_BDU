@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OCHA business card</title>
+  <meta name="description" content="Make a print-ready OCHA business card for Avery sheets or a print shop, or get a digital eBusiness card.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="vendor/ocha-app-kit.css">
+  <link rel="stylesheet" href="app.css">
+  <script src="https://kit.fontawesome.com/f4c1c5435d.js" crossorigin="anonymous"></script>
+  <script type="module" src="src/app.js"></script>
+</head>
+<body>
+<main class="bc">
+  <nav class="mode-tabs" role="tablist" aria-label="Card type">
+    <button class="mode-tab is-active" role="tab" id="tab-print" aria-controls="panel-print" aria-selected="true">
+      <i class="fa-regular fa-print" aria-hidden="true"></i> Printed card
+    </button>
+    <button class="mode-tab" role="tab" id="tab-digital" aria-controls="panel-digital" aria-selected="false" tabindex="-1">
+      <i class="fa-regular fa-qrcode" aria-hidden="true"></i> Digital card
+    </button>
+  </nav>
+
+  <!-- PRINTED CARD -->
+  <section id="panel-print" role="tabpanel" aria-labelledby="tab-print" class="bc__panel bc__print">
+    <form id="card-form" class="bc__form cd-flow" autocomplete="on" novalidate>
+      <div>
+        <label class="cd-form__label" for="f-lang">Card language</label>
+        <select class="cd-form__input" id="f-lang" name="lang"></select>
+      </div>
+      <div class="bc__pair">
+        <div>
+          <label class="cd-form__label" for="f-firstName">First name</label>
+          <input class="cd-form__input" id="f-firstName" name="firstName" autocomplete="given-name">
+        </div>
+        <div>
+          <label class="cd-form__label" for="f-lastName">Last name</label>
+          <input class="cd-form__input" id="f-lastName" name="lastName" autocomplete="family-name">
+        </div>
+      </div>
+      <div>
+        <label class="cd-form__label" for="f-title">Job title</label>
+        <input class="cd-form__input" id="f-title" name="title" autocomplete="organization-title">
+      </div>
+      <div>
+        <label class="cd-form__label" for="f-units">Unit, branch, division, office</label>
+        <textarea class="cd-form__input" id="f-units" name="units" rows="3"></textarea>
+        <p class="app-hint">One per line.</p>
+      </div>
+      <div class="bc__pair">
+        <div>
+          <label class="cd-form__label" for="f-office">Office phone</label>
+          <input class="cd-form__input" id="f-office" name="office" type="tel" dir="ltr" autocomplete="tel-national" placeholder="+1 212 963 1234">
+        </div>
+        <div>
+          <label class="cd-form__label" for="f-mobile">Mobile phone</label>
+          <input class="cd-form__input" id="f-mobile" name="mobile" type="tel" dir="ltr" autocomplete="tel" placeholder="+1 917 367 5555">
+        </div>
+      </div>
+      <div>
+        <label class="cd-form__label" for="f-email">Email</label>
+        <input class="cd-form__input" id="f-email" name="email" type="email" dir="ltr" autocomplete="email" placeholder="name@un.org">
+      </div>
+      <div>
+        <label class="cd-form__label" for="f-address">Address and other details</label>
+        <textarea class="cd-form__input" id="f-address" name="address" rows="2"></textarea>
+        <p class="app-hint">Office address, or a social media handle. One per line.</p>
+      </div>
+    </form>
+
+    <div class="bc__output cd-flow">
+      <figure class="bc__preview" aria-live="polite">
+        <div id="preview" class="bc__card" role="img" aria-label="Card preview"></div>
+        <figcaption class="app-hint" id="preview-caption">Preview at actual proportions</figcaption>
+      </figure>
+
+      <div id="fit" class="cd-alert cd-alert--status" hidden><div class="cd-alert__message"><p id="fit-msg"></p></div></div>
+
+      <fieldset class="bc__formats">
+        <legend class="cd-form__label">How will you print it?</legend>
+        <div id="format-list" class="bc__format-list"></div>
+      </fieldset>
+
+      <button type="button" id="download" class="cd-button">
+        <i class="fa-regular fa-file-arrow-down" aria-hidden="true"></i> Download PDF
+      </button>
+
+      <details class="bc__howto" id="howto-sheet">
+        <summary>How to print on Avery sheets</summary>
+        <ol>
+          <li>Buy <strong id="howto-avery">Avery 8371</strong> business card sheets, or sheets with exactly the same layout.</li>
+          <li>Open the PDF and print it on plain paper first. Hold it against a card sheet to the light to check that the cards line up.</li>
+          <li>In the print settings, set the scale to <strong>Actual size</strong> or <strong>100%</strong>. Never choose “Fit to page”.</li>
+          <li>Load the card sheet and print.</li>
+        </ol>
+      </details>
+      <details class="bc__howto" id="howto-pro" hidden>
+        <summary>How to order from a print shop</summary>
+        <ol>
+          <li>Send the PDF to your print shop as it is. It already has 3 mm bleed, crop marks and print colours (CMYK).</li>
+          <li>No fonts are needed: all text is saved as outlines.</li>
+          <li>Ask for a proof before the full run.</li>
+        </ol>
+      </details>
+    </div>
+  </section>
+
+  <!-- DIGITAL CARD -->
+  <section id="panel-digital" role="tabpanel" aria-labelledby="tab-digital" class="bc__panel bc__digital cd-flow" hidden>
+    <p class="app-lede">Before printing, consider going digital. The eBusiness Card app makes a card with a QR code. When someone scans it, your contact details go straight into their phone.</p>
+    <ol class="bc__steps">
+      <li>Open the app and sign in with your UN account.</li>
+      <li>Fill in your details and create your card.</li>
+      <li>You get an image of the card with its QR code by email. Save it on your phone to share it.</li>
+    </ol>
+    <p>The app can also scan printed business cards and save the contact straight into Outlook.</p>
+    <p><a class="cd-button" href="https://bizcards.unocha.org/" target="_blank" rel="noopener">
+      Open the eBusiness Card app <i class="fa-regular fa-arrow-up-right-from-square" aria-hidden="true"></i>
+    </a></p>
+  </section>
+
+  <p class="app-hint bc__foot">Questions? <a href="mailto:ochavisual@un.org">ochavisual@un.org</a> · Brand and Design Unit</p>
+</main>
+</body>
+</html>

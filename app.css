@@ -1,0 +1,49 @@
+/* Layout only. Every colour, button, input, tab and alert comes from the OCHA
+   App Kit (vendor/ocha-app-kit.css, synced from the design system — never edit
+   it here). Sized to sit inside a brand.unocha.org embed. */
+
+body { margin: 0; background: var(--bg); }
+
+.bc {
+  max-width: var(--cd-max-width);
+  margin: 0 auto;
+  padding: var(--sp-16) var(--cd-container-padding);
+  display: grid;
+  gap: var(--sp-24);
+}
+
+.bc__panel[hidden] { display: none; }
+
+/* Printed card: form | preview. Mobile-first single column. */
+.bc__print { display: grid; gap: var(--sp-24); align-items: start; }
+@media (min-width: 768px) {
+  .bc__print { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: var(--sp-32); }
+  .bc__output { position: sticky; top: var(--sp-16); }
+}
+
+.bc__form { --cd-flow-space: var(--sp-16); }
+.bc__form .cd-form__input { width: 100%; box-sizing: border-box; }
+.bc__form textarea.cd-form__input { resize: vertical; font: inherit; }
+.bc__form .app-hint { margin: var(--sp-4) 0 0; }
+.bc__pair { display: grid; gap: var(--sp-16); }
+@media (min-width: 576px) { .bc__pair { grid-template-columns: 1fr 1fr; } }
+
+.bc__output { --cd-flow-space: var(--sp-16); }
+
+/* Card preview: the SVG carries the card; this only frames it. */
+.bc__preview { margin: 0; }
+.bc__card { width: 100%; line-height: 0; }
+.bc__card svg { width: 100%; height: auto; display: block; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--card); }
+.bc__preview figcaption { margin-top: var(--sp-8); }
+
+.bc__formats { border: 0; margin: 0; padding: 0; min-width: 0; }
+.bc__format-list { display: grid; gap: var(--sp-8); }
+.bc__format-list label { display: flex; gap: var(--sp-8); align-items: baseline; cursor: pointer; }
+.bc__format-list .app-hint { display: block; }
+
+.bc__howto summary { cursor: pointer; font-weight: 700; }
+.bc__howto ol, .bc__steps { margin: var(--sp-8) 0 0; padding-inline-start: var(--sp-24); display: grid; gap: var(--sp-4); }
+
+.bc__digital { max-width: var(--cd-max-content-width); }
+
+.bc__foot { margin: 0; }
